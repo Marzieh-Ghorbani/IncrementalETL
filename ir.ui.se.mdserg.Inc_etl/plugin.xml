@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            
+            id="ir.ui.se.mdserg.Inc_etl.commands.category"
+            name="Incremental Etl">
+      </category>
+     
+     
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+  
+      <handler
+            class="ir.ui.se.mdserg.Inc_etl.handlers.ModelHandler"
+            commandId="ir.ui.se.mdserg.Inc_etl.commands.ModelCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ir.ui.se.mdserg.Inc_etl.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.handlers">
+      
+      <handler
+            class="ir.ui.se.mdserg.Inc_etl.handlers.ModelHandler"
+            commandId="ir.ui.se.mdserg.Inc_etl.commands.Run Transformation">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Incremental Etl"
+               mnemonic="M"
+               id="ir.ui.se.mdserg.Inc_etl.menus.sampleMenu">
+            <command
+                  commandId="ir.ui.se.mdserg.Inc_etl.commands.Run Transformation"
+                  icon="icons/image.png"
+                  id="Run Transformation"
+                  label="Run Transformation"
+                  mnemonic="S">
+            </command>
+            
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

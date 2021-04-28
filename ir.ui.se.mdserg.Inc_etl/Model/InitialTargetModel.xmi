@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DB="DB">
+  <DB:Table name="Student" primaryKeys="/0/@columns.0">
+    <columns name="studentId" type="INT"/>
+    <columns name="stdName" type="NVARCHAR"/>
+    <columns name="averageMark" type="INT"/>
+    <columns name="enrolledId" type="INT"/>
+  </DB:Table>
+  <DB:Table name="Class" primaryKeys="/1/@columns.0">
+    <columns name="classId" type="INT"/>
+    <columns name="className" type="NVARCHAR"/>
+    <columns name="classDesc" type="NVARCHAR"/>
+    <columns name="belongsId" type="INT"/>
+  </DB:Table>
+  <DB:Table name="Course" primaryKeys="/2/@columns.0">
+    <columns name="courseId" type="INT"/>
+    <columns name="courseName" type="NVARCHAR"/>
+    <columns name="courseUnit" type="INT"/>
+  </DB:Table>
+  <DB:Table name="Professor" primaryKeys="/3/@columns.0">
+    <columns name="professorId" type="INT"/>
+    <columns name="profName" type="NVARCHAR"/>
+    <columns name="salary" type="INT"/>
+  </DB:Table>
+  <DB:ForeignKey name="enrolled" parent="/1/@columns.0" child="/0/@columns.3"/>
+  <DB:ForeignKey name="belongs" parent="/2/@columns.0" child="/1/@columns.3"/>
+</xmi:XMI>

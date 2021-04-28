@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TM:TypeMap
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:TM="TM"
+    xmi:id="_75xTYJGeEei8srBxFhm9wg">
+  <mappings
+      xmi:id="_75x6cJGeEei8srBxFhm9wg"
+      source="String"
+      target="NVARCHAR"/>
+  <mappings
+      xmi:id="_75x6cZGeEei8srBxFhm9wg"
+      source="integer"
+      target="INT"/>
+</TM:TypeMap>
