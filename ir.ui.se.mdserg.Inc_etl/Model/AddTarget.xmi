@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB="DB" xsi:schemaLocation="DB file:/D:/Eclipses/eclipse-epsilon-e3mp/eclipse-epsilon-e3mp/eclipse/runtime-EclipseApplication/TestIncETL/MetaModel/DB.ecore">
+  <DB:Table name="Course" primaryKeys="/0/@columns.0">
+    <columns name="courseId" type="INT"/>
+    <columns name="courseDesc" type="NVARCHAR"/>
+  </DB:Table>
+  <DB:ForeignKey name="taughtby" parent="/3/@columns.0" child="/2/@columns.1"/>
+  <DB:Table name="Class" primaryKeys="/2/@columns.0">
+    <columns name="classId" type="INT"/>
+    <columns name="taughtbyId" type="INT"/>
+  </DB:Table>
+  <DB:Table name="Professor" primaryKeys="/3/@columns.0">
+    <columns name="professorId" type="INT"/>
+  </DB:Table>
+</xmi:XMI>

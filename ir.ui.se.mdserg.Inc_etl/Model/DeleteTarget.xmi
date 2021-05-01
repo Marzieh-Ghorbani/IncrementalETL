@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<DB:Column xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB="DB" xsi:schemaLocation="DB file:/D:/Eclipses/eclipse-epsilon-e3mp/eclipse-epsilon-e3mp/eclipse/runtime-EclipseApplication/TestIncETL/MetaModel/DB.ecore" name="classDesc" type="NVARCHAR"/>

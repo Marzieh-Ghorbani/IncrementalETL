@@ -19,7 +19,8 @@ import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
-import org.eclipse.epsilon.eol.IEolExecutableModule;
+import org.eclipse.epsilon.eol.IEolModule; 
+//import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.models.IModel;
@@ -33,7 +34,7 @@ import org.eclipse.emf.common.util.URI;
 
 public abstract class EpsilonStandalone {
 
-	protected IEolExecutableModule module;
+	protected IEolModule module;
 	protected Object result;
 	public abstract String getSource() throws Exception;
 	public abstract List<IModel> getModels() throws Exception;
@@ -63,7 +64,7 @@ public abstract class EpsilonStandalone {
 		postProcess();
 		module.getContext().getModelRepository().dispose();
 	}
-	protected Object execute(IEolExecutableModule module) throws EolRuntimeException {
+	protected Object execute(IEolModule module) throws EolRuntimeException {
 		return module.execute();
 	}
 	protected EmfModel createEmfModel(String name, String model, String metamodel, boolean readOnLoad,
@@ -107,7 +108,7 @@ public abstract class EpsilonStandalone {
 		return new File(uri);
 	}
 
-	public IEolExecutableModule createModule() {
+	public IEolModule createModule() {
 		// TODO Auto-generated method stub
 		return null;
 	}

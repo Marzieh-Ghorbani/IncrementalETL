@@ -30,7 +30,8 @@ import org.eclipse.epsilon.common.module.ModuleElement;
 import org.eclipse.epsilon.common.util.CollectionUtil;
 import org.eclipse.epsilon.ecl.EclModule;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
-import org.eclipse.epsilon.eol.IEolExecutableModule;
+import org.eclipse.epsilon.eol.IEolModule; 
+//import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.etl.EtlModule;
 import org.eclipse.epsilon.etl.IEtlModule;
 import org.eclipse.epsilon.etl.dom.TransformationRule;
@@ -53,7 +54,7 @@ import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 //********************************************************************************************
 
-public  class EtlStandaloneExample extends EpsilonStandalone {
+public class EtlStandaloneExample extends EpsilonStandalone {
 
 	private static final Class<?> IItemLabelProviderClass = IItemLabelProvider.class;
 	private static final Class<?> ITreeItemContentProviderClass = ITreeItemContentProvider.class;
@@ -64,21 +65,24 @@ public  class EtlStandaloneExample extends EpsilonStandalone {
 	protected static InMemoryEmfModel delDB = null;
 	public static InMemoryEmfModel Targetv1;
 	
-	String addtargetpath = "C:\\Users\\M\\Desktop\\Model\\AddTarget.xmi";
-	String deletetargetpath = "C:\\Users\\M\\Desktop\\Model\\DeleteTarget.xmi";
-	String  oo2dbpath = "C:\\Users\\M\\Desktop\\Model\\OO2DB.xmi";
-    String 	TMpath = "C:\\Users\\M\\Desktop\\MetaModel\\TM.ecore";
-  //***********************************************************
+	//String Path = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	
+
+	String addtargetpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/Model/AddTarget.xmi";
+	String deletetargetpath =FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/Model/DeleteTarget.xmi";
+	String oo2dbpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/Model/OO2DB.xmi";
+	String TMpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/MetaModel/TM.ecore";
+    
     
 	static EtlModule module = new EtlModule();
 	static String Text1 = null;
 
 	public long CreateAddTarget(String Model1,String Model2,String baseTarget,String sourceMetamodel, String targetMetamodel,String etlpath) throws URISyntaxException, Exception {
 		
+
 		addtargetpath = addtargetpath.replaceAll("\\\\", "/");
 		java.net.URI addtargetpathURI = java.net.URI.create("file:/"+addtargetpath) ;
-		
-		
+
 		deletetargetpath = deletetargetpath.replaceAll("\\\\", "/");
 		java.net.URI deletetargetpathURI = java.net.URI.create("file:/"+deletetargetpath) ; 
 		
@@ -98,6 +102,8 @@ public  class EtlStandaloneExample extends EpsilonStandalone {
 		ResourceSet resourseSet = new ResourceSetImpl();
 		resourseSet.getPackageRegistry().put(metapackage.getNsURI(), metapackage);
 		resourseSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+	
+		
 		Resource resource = resourseSet.createResource(URI.createURI(addtargetpathURI.toString()));
 		Resource resource1 = resourseSet.createResource(URI.createURI(deletetargetpathURI.toString()));
 		
@@ -111,8 +117,8 @@ public  class EtlStandaloneExample extends EpsilonStandalone {
 		baseModel = getInMemoryEmfModel("Left", new File(Model1), sourceMetamodel);
 		newVersion = getInMemoryEmfModel("Right", new File(Model2), sourceMetamodel);
 		DB = getInMemoryEmfModel("DB", new File(addtargetpath), targetMetamodel);
-		delDB = getInMemoryEmfModel("DB", new File(deletetargetpathURI), targetMetamodel);
-		OO2DB = getInMemoryEmfModel("OO2DB", new File(oo2dbURI), TMpath);
+		delDB = getInMemoryEmfModel("DB", new File(deletetargetpath), targetMetamodel);
+		OO2DB = getInMemoryEmfModel("OO2DB", new File(oo2dbpath), TMpath);
 		Targetv1 = getInMemoryEmfModel("DB", new File(baseTarget), targetMetamodel);
 		Targetv1.setStoredOnDisposal(true);
 
@@ -315,10 +321,12 @@ public  class EtlStandaloneExample extends EpsilonStandalone {
 	}
 
 	@Override
-	public IEolExecutableModule createModule() {
+	public IEolModule createModule() {
 		return new EtlModule();
 	}
 
+
+	
 	@Override
 	public void postProcess() {
 

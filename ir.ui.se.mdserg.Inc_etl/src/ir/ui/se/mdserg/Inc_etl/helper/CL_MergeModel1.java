@@ -27,6 +27,7 @@ import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.models.IModel;
 
 import ir.ui.se.mdserg.Inc_etl.wizards.DataHolder;
+import ir.ui.se.mdserg.Inc_etl.wizards.FileChooser;
 import ir.ui.se.mdserg.Inc_etl.wizards.FinalPage;
 import ir.ui.se.mdserg.Inc_etl.wizards.MetaModelSelectionPage;
 import ir.ui.se.mdserg.Inc_etl.wizards.ModelSelectionPage;
@@ -45,7 +46,7 @@ public class CL_MergeModel1 extends EpsilonStandalone {
 	private static final Class<?> IItemLabelProviderClass = IItemLabelProvider.class;
 	private static final Class<?> ITreeItemContentProviderClass = ITreeItemContentProvider.class;
 
-	String temppath = "C:\\Users\\M\\Desktop\\Model\\temp.xmi";
+	String temppath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath() +"/Model/temp.xmi";
 	FinalPage fp;
 	DataHolder dt;
 
