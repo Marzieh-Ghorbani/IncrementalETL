@@ -215,9 +215,13 @@ public class CL_MergeModel1 extends EpsilonStandalone {
 								temp_resource.getContents().add((EObject) baseElement);
 							}
 							flag = true;
+							break; 
 						}
+			
 					}
+					
 				}
+				
 			}
 		}
 		@SuppressWarnings("rawtypes")

@@ -6,25 +6,31 @@
     <columns name="averageMark" type="INT"/>
     <columns name="enrolledId" type="INT"/>
   </DB:Table>
-  <DB:Table name="Class" primaryKeys="/1/@columns.0">
-    <columns name="classId" type="INT"/>
-    <columns name="className" type="NVARCHAR"/>
-    <columns name="belongsId" type="INT"/>
-  </DB:Table>
-  <DB:Table name="Course" primaryKeys="/2/@columns.0">
-    <columns name="courseId" type="INT"/>
-    <columns name="courseName" type="NVARCHAR"/>
-    <columns name="courseUnit" type="INT"/>
-  </DB:Table>
-  <DB:Table name="Professor" primaryKeys="/3/@columns.0">
+  <DB:Table name="Professor" primaryKeys="/1/@columns.0">
     <columns name="professorId" type="INT"/>
     <columns name="profName" type="NVARCHAR"/>
     <columns name="salary" type="INT"/>
   </DB:Table>
-  <DB:ForeignKey name="enrolled" parent="/1/@columns.0" child="/0/@columns.3"/>
-  <DB:ForeignKey name="belongs" parent="/2/@columns.0" child="/1/@columns.2"/>
+  <DB:ForeignKey name="enrolled" child="/0/@columns.3"/>
+  <DB:ForeignKey name="belongs"/>
   <DB:ForeignKey name="taughtby">
     <parent href="../../../workspace/ir.ui.se.mdserg.Inc_etl/Model/AddTarget.xmi#/2/@columns.0"/>
     <child href="../../../workspace/ir.ui.se.mdserg.Inc_etl/Model/AddTarget.xmi#/1/@columns.1"/>
   </DB:ForeignKey>
+  <DB:ForeignKey name="taughtby">
+    <parent href="../../../workspace/ir.ui.se.mdserg.Inc_etl/Model/AddTarget.xmi#/2/@columns.0"/>
+    <child href="../../../workspace/ir.ui.se.mdserg.Inc_etl/Model/AddTarget.xmi#/1/@columns.1"/>
+  </DB:ForeignKey>
+  <DB:Table name="Class" primaryKeys="/6/@columns.0">
+    <columns name="classId" type="INT"/>
+    <columns name="className" type="NVARCHAR"/>
+    <columns name="belongsId" type="INT"/>
+    <columns name="taughtbyId" type="INT"/>
+  </DB:Table>
+  <DB:Table name="Course" primaryKeys="/7/@columns.0">
+    <columns name="courseId" type="INT"/>
+    <columns name="courseName" type="NVARCHAR"/>
+    <columns name="courseUnit" type="INT"/>
+    <columns name="courseDesc" type="NVARCHAR"/>
+  </DB:Table>
 </xmi:XMI>

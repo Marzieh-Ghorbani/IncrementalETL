@@ -65,13 +65,12 @@ public class EtlStandaloneExample extends EpsilonStandalone {
 	protected static InMemoryEmfModel delDB = null;
 	public static InMemoryEmfModel Targetv1;
 	
-	//String Path = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	
 
 	String addtargetpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/Model/AddTarget.xmi";
 	String deletetargetpath =FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/Model/DeleteTarget.xmi";
 	String oo2dbpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"/Model/OO2DB.xmi";
-	String TMpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/MetaModel/TM.ecore";
+	String TMpath = FileChooser.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/MetaModels/TM.ecore";
     
     
 	static EtlModule module = new EtlModule();
@@ -210,7 +209,7 @@ public class EtlStandaloneExample extends EpsilonStandalone {
 		long endTime12 = System.currentTimeMillis();
 		long elapsedTime32 = endTime12 - startTime12;
 	
-		// ********************************************MethodeDELETE************************************************
+		// ********************************************MethodeDelete************************************************
 		
 		long startTime24 = System.currentTimeMillis();
 

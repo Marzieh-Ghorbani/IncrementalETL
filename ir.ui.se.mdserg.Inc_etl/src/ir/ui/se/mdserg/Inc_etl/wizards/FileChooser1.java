@@ -25,6 +25,7 @@ public class FileChooser1 extends Composite {
 		setLayout(layout);
 	    Button mrButton = new Button(this, SWT.RADIO);
 	    mrButton.setText("ECL");
+	    mrButton.setSelection(true);
 	    Button rEMFButton = new Button(this, SWT.RADIO);
 	    rEMFButton.setText("EMF Compare");
 	}
